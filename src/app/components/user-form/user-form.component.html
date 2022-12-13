@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-title>User form</mat-card-title>
+  <mat-card-content>
+
+
+    <form [formGroup]="userForm" (ngSubmit)="onUserFormSubmitted(userForm)">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput type="text" placeholder="Email" formControlName="email">
+          <mat-error *ngIf="userForm.get('email')!.invalid">email is invalid</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a role</mat-label>
+          <mat-select formControlName="role">
+            <mat-option *ngFor="let item of roles$ | async" [value]="item.id">
+              {{item.role}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="userForm.get('role')!.invalid">You have to choose a role</mat-error>
+        </mat-form-field>
+
+      </div>
+      <div>
+        <button type="submit" mat-raised-button color="primary" [disabled]="userForm.invalid">Submit</button>
+      </div>
+    </form>
+
+  </mat-card-content>
+</mat-card>

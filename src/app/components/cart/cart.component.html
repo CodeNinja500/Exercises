@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-title>Cart</mat-card-title>
+  <mat-card-content *ngIf="productList$|async as product_list">
+
+
+    <form [formGroup]="cartForm" (ngSubmit)="onCartFormSubmitted(cartForm, product_list)">
+      <div>
+        <section *ngFor="let product of product_list">
+          <mat-checkbox [formControlName]="product.id">{{product.title}}</mat-checkbox>
+        </section>
+      </div>
+      <div>
+        <button type="submit" mat-raised-button color="primary">Submit</button>
+      </div>
+    </form>
+
+  </mat-card-content>
+</mat-card>

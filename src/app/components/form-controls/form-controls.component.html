@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-title>Products</mat-card-title>
+  <mat-card-content *ngIf="productList$|async">
+    <form [formGroup]="cartForm" (ngSubmit)="onCartFormSubmitted(cartForm)">
+      <div formArrayName="products">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; min-height: 2rem" *ngFor="let item of productFormArray.controls; let i = index" [formGroupName]="i">
+          <mat-checkbox [checked]="item.value.value" formControlName="value">{{item.value.title}}</mat-checkbox>
+          <span *ngIf="item.value.value">
+            <button mat-raised-button (click)="increaseQuantity(i)">+</button>
+            <button mat-raised-button (click)="decreaseQuantity(i)">-</button>
+            <span>{{item.value.quantity}}</span></span>
+        </div>
+      </div>
+      <div>
+        <button type="submit" mat-raised-button color="primary" [disabled]="cartForm.invalid">Submit</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+<div *ngFor="let item of productFormArray.controls">
+  <div *ngIf="item.value.value">
+    {{item.value.productId}} {{item.value.title}} {{item.value.quantity}}
+  </div>
+
+</div>
