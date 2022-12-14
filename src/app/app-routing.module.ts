@@ -11,6 +11,7 @@ import { ExNineOneComponent } from './components/ex-nine-one/ex-nine-one.compone
 import { ExNineThreeComponent } from './components/ex-nine-three/ex-nine-three.component';
 import { PaginatorDoubleFeComponent } from './components/paginator-double-fe/paginator-double-fe.component';
 import { PaginatorSingleBeComponent } from './components/paginator-single-be/paginator-single-be.component';
+import { CryptoAutocompliteFeComponent } from './components/crypto-autocomplite-fe/crypto-autocomplite-fe.component';
 import { UserFormComponentModule } from './components/user-form/user-form.component-module';
 import { UsersServiceModule } from './services/users.service-module';
 import { CreateJobComponentModule } from './components/create-job/create-job.component-module';
@@ -25,9 +26,11 @@ import { ExNineOneComponentModule } from './components/ex-nine-one/ex-nine-one.c
 import { ExNineThreeComponentModule } from './components/ex-nine-three/ex-nine-three.component-module';
 import { PaginatorDoubleFeComponentModule } from './components/paginator-double-fe/paginator-double-fe.component-module';
 import { PaginatorSingleBeComponentModule } from './components/paginator-single-be/paginator-single-be.component-module';
+import { CryptoAutocompliteFeComponentModule } from './components/crypto-autocomplite-fe/crypto-autocomplite-fe.component-module';
+import { CryptosServiceModule } from './services/cryptos.service-module';
 
 @NgModule({
-  imports: [RouterModule.forRoot([{ path: 'create-user-with-role', component: UserFormComponent }, { path: 'create-job', component: CreateJobComponent }, { path: ':id/cart', component: CartComponent }, { path: 'form-array', component: FormControlsComponent }, { path: ':id/new-cart', component: NewCartComponent }, { path: 'paginator', component: PaginatorComponent }, { path: 'ex-nine-one', component: ExNineOneComponent }, { path: 'ex-nine-three', component: ExNineThreeComponent }, { path: 'paginator-double-fe', component: PaginatorDoubleFeComponent }, { path: 'paginator-single-be', component: PaginatorSingleBeComponent }]), UserFormComponentModule, UsersServiceModule, CreateJobComponentModule, JobsServiceModule, CartComponentModule, CartServiceModule, FormControlsComponentModule, NewCartComponentModule, PaginatorComponentModule, FakeStoreApiServiceModule, MatDatepickerModule, ExNineOneComponentModule, ExNineThreeComponentModule, PaginatorDoubleFeComponentModule, PaginatorSingleBeComponentModule],
+  imports: [RouterModule.forRoot([{ path: 'create-user-with-role', component: UserFormComponent }, { path: 'create-job', component: CreateJobComponent }, { path: ':id/cart', component: CartComponent }, { path: 'form-array', component: FormControlsComponent }, { path: ':id/new-cart', component: NewCartComponent }, { path: 'paginator', component: PaginatorComponent }, { path: 'ex-nine-one', component: ExNineOneComponent }, { path: 'ex-nine-three', component: ExNineThreeComponent }, { path: 'paginator-double-fe', component: PaginatorDoubleFeComponent }, { path: 'paginator-single-be', component: PaginatorSingleBeComponent }, { path: 'crypto-autocomplite-fe', component: CryptoAutocompliteFeComponent }]), UserFormComponentModule, UsersServiceModule, CreateJobComponentModule, JobsServiceModule, CartComponentModule, CartServiceModule, FormControlsComponentModule, NewCartComponentModule, PaginatorComponentModule, FakeStoreApiServiceModule, MatDatepickerModule, ExNineOneComponentModule, ExNineThreeComponentModule, PaginatorDoubleFeComponentModule, PaginatorSingleBeComponentModule, CryptoAutocompliteFeComponentModule, CryptosServiceModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
