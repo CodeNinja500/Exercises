@@ -28,7 +28,8 @@ export class SearchOnTypingComponent {
     this.search.valueChanges.pipe(startWith({name: '', category: ''})),
     this.productList$
   ]).pipe(map(([searchForm, products]) => products.filter(product => product.category.toLowerCase().includes(
-    searchForm.category.toLowerCase()) || searchForm.category === 'All').filter(product => product.title.toLowerCase().includes(searchForm.name.toLowerCase()))));
+    searchForm.category.toLowerCase()) || searchForm.category === 'All').filter(
+      product => product.title.toLowerCase().includes(searchForm.name.toLowerCase()))));
 
   constructor(private _fakeStoreApiService: FakeStoreApiService, private _productsService: ProductsService) {
   }
