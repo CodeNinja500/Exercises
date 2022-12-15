@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-title>Product Search</mat-card-title>
+
+  <form [formGroup]="search" (ngSubmit)="onSearchSubmitted(search)">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" placeholder="Title" formControlName="title" required>
+        <mat-error *ngIf="search.get('title')!.invalid">title is invalid</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <button type="submit" mat-raised-button color="primary" [disabled]="search.invalid">Submit</button>
+    </div>
+  </form>
+
+  <mat-card-content>
+
+    <mat-list role="list">
+      <mat-list-item role="listitem"
+                     *ngFor="let item of productsFilteres | async">{{item.id}} {{item.title}}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

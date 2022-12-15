@@ -15,4 +15,8 @@ export class FakeStoreApiService {
   getProductLimit(limit: number): Observable<ProductModel[]> {
     return this._httpClient.get<ProductModel[]>('https://fakestoreapi.com/products?limit=' + limit)
   }
+
+  getAllCategories(): Observable<string[]> {
+    return this._httpClient.get<string[]>('https://fakestoreapi.com/products/categories')
+  }
 }

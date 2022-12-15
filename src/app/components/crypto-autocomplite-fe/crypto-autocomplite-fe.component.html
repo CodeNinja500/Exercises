@@ -1,19 +1,27 @@
 <mat-card>
   <mat-card-title>Cryptos</mat-card-title>
-  <mat-card-content *ngIf="cryptoList$| async as crypto">
 
-    <form [formGroup]="searchForm">
+  <mat-chip-list aria-label="Fish selection">
+    <mat-chip *ngFor="let item of cryptoAcc$ | async">
+      {{item}}
+    </mat-chip>
+  </mat-chip-list>
+  <br>
+  <mat-card-content *ngIf="cryptoListFiltered| async as crypto">
+    <form>
       <mat-form-field appearance="fill">
         <mat-label>Choose an option</mat-label>
         <input type="text"
                placeholder="Pick one"
                matInput
-               formControlName="symbol"
-               [matAutocomplete]="symbol">
-        <mat-autocomplete #symbol="matAutocomplete">
-          <mat-option *ngFor="let item of cryptoListFiltered|async" [value]="item">
-            {{item.symbol}}
-          </mat-option>
+               [formControl]="symbol"
+               [matAutocomplete]="symbol1">
+        <mat-autocomplete #symbol1="matAutocomplete">
+          <ng-container>
+            <mat-option *ngFor="let item of crypto" [value]="item.symbol" (click)="addCryptoToAcc(item.symbol)">
+              {{item.symbol}}
+            </mat-option>
+          </ng-container>
         </mat-autocomplete>
       </mat-form-field>
 

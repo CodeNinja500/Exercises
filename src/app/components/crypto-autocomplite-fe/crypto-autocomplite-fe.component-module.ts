@@ -6,10 +6,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatOptionModule } from '@angular/material/core';
+import { MatChipsModule } from '@angular/material/chips';
 import { CryptoAutocompliteFeComponent } from './crypto-autocomplite-fe.component';
 
 @NgModule({
-  imports: [MatCardModule, CommonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatAutocompleteModule, MatOptionModule],
+  imports: [MatCardModule, CommonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatAutocompleteModule, MatOptionModule, MatChipsModule],
   declarations: [CryptoAutocompliteFeComponent],
   providers: [],
   exports: [CryptoAutocompliteFeComponent]
