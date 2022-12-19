@@ -26,8 +26,9 @@ export class AddingToCartComponent {
     search: new FormControl(''),
     category: new FormControl('')
   });
-  private _cartSubject: BehaviorSubject<ProductFullModel[] | undefined> = new BehaviorSubject<ProductFullModel[] | undefined>(undefined);
-  public cart$: Observable<ProductFullModel[] | undefined> = this._cartSubject.asObservable();
+
+  private _cartSubject: BehaviorSubject<ProductFullModel[]> = new BehaviorSubject<ProductFullModel[]>([]);
+  public cart$: Observable<ProductFullModel[]> = this._cartSubject.asObservable();
 
   constructor(private _productsService: ProductsService) {
   }
@@ -39,7 +40,6 @@ export class AddingToCartComponent {
       } else {
         this._cartSubject.next([product])
       }
-
     })).subscribe()
   }
 
@@ -47,7 +47,6 @@ export class AddingToCartComponent {
     this.cart$.pipe(take(1), tap(cart => {
       if (cart) {
         this._cartSubject.next(cart.filter(item => item.id != id))
-
       }
     })).subscribe()
   }
